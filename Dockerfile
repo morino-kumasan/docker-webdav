@@ -3,12 +3,16 @@ FROM nginx:latest
 ARG USER=admin
 ARG PASSWD=password
 
+RUN apt-get update -y \
+    && apt-get install -y nginx-extras libnginx-mod-http-dav-ext
+
 # Create data dir
 RUN mkdir -p /var/www/data
 RUN chown -R nginx:nginx /var/www/data
 
 # Create temporary dir
 RUN mkdir -p /tmp/data
+RUN chmod 777 /tmp/data
 RUN chown -R nginx:nginx /tmp/data
 
 # Config
