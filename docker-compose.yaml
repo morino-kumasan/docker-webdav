@@ -3,10 +3,10 @@ version: '3'
 services:
   webdav_server:
     build:
-      context: .
+      context: ./docker
       args:
         - USER=admin
-        - PASSWD=password
+        - PASSWD=admin
     volumes:
       - ./data:/var/www/data
     ports:
