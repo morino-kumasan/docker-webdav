@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  webdav_server:
+    build:
+      context: .
+      args:
+        - USER=admin
+        - PASSWD=password
+    volumes:
+      - ./data:/var/www/data
+    ports:
+      - 38080:8080
